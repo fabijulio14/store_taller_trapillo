@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:taller_trapillo_store/l10n/generated/app_localizations_en.dart';
+import 'l10n/generated/app_localizations.dart';
 import 'screens/welcome/welcome_screen.dart';
 
 void main() {
@@ -9,9 +10,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const WelcomeView(), debugShowCheckedModeBanner: false);
+    return MaterialApp(
+      home: const WelcomeView(),
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+    );
   }
 }

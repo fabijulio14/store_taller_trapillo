@@ -1,0 +1,19 @@
+{
+  "hello": "Hello",
+  "description": "Texto de saludo en inglés",
+  "title_app": "Trapillo Workshop",
+  "home": "Home",
+  "cart": "Cart",
+  "profile": "Profile",
+  "title_categories": "Categories",
+  "category_handbags": "Bags",
+  "category_baskets": "Baskests",
+  "category_accessories": "Accessories",
+  "promotions": "Promotions",
+  "welcome_title": "Welcome to Trapillo Store",
+  "txt_user": "User",
+  "txt_passw": "Password",
+  "button_enter": "Enter"
+
+
+}

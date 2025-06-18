@@ -1,0 +1,49 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Productos",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3001/"
+        }
+    ],
+    "paths": {
+        "/getProducts": {
+            "get": {
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "example": "[\n  {\n    \"id\": 1,\n    \"name\": \"Bolso Liz\",\n    \"description\": \"Bolso Liz, varios colores.\",\n    \"price\": 12.99,\n    \"promo_price\": 10.99,\n    \"featured\": true,\n    \"image\": \"assets/images/bolso_1.png\",\n    \"category\": \"Bolso\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Bolso Fabi\",\n    \"description\": \"Bolso Fabi, varios colores.\",\n    \"price\": 29.99,\n    \"featured\": true,\n    \"image\": \"assets/images/bolso_2.png\",\n    \"category\": \"Bolso\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Cesto Aurora\",\n    \"description\": \"Cesto de 40cm de diámetro, varios colores.\",\n    \"price\": 30.99,\n    \"promo_price\": 25.99,\n    \"featured\": false,\n    \"image\": \"assets/images/cesto_1.png\",\n    \"category\": \"Cesto\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Alfombra Corazón\",\n    \"description\": \"Alfombra con forma de corazón, color rosa.\",\n    \"price\": 40.99,\n    \"featured\": true,\n    \"image\": \"assets/images/alfombra_1.png\",\n    \"category\": \"Accesorio\"\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Llavero de mariposa\",\n    \"description\": \"Camino de mesa tejido a mano con diseño floral. Disponible en varios colores.\",\n    \"price\": 22.50,\n    \"promo_price\": 18.50,\n    \"featured\": false,\n    \"image\": \"assets/images/llavero_mariposa.png\",\n    \"category\": \"Accesorio\"\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Llavero de lazos\",\n    \"description\": \"Cojín decorativo estilo boho, suave y tejido a mano.\",\n    \"price\": 18.75,\n    \"featured\": true,\n    \"image\": \"assets/images/llavero_lazos.png\",\n    \"category\": \"Accesorio\"\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Llavero de abeja\",\n    \"description\": \"Cesto multipropósito tejido a mano, ideal para organizar pequeños espacios.\",\n    \"price\": 15.99,\n    \"promo_price\": 12.99,\n    \"featured\": false,\n    \"image\": \"assets/images/llavero_abeja.png\",\n    \"category\": \"Accesorio\"\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Cesta Conejo\",\n    \"description\": \"Bolso playero espacioso, resistente al agua.\",\n    \"price\": 25.99,\n    \"featured\": false,\n    \"image\": \"assets/images/cesta_conejo.png\",\n    \"category\": \"Cesto\"\n  },\n  {\n    \"id\": 9,\n    \"name\": \"Bolso Naranja\",\n    \"description\": \"Cesto redondo para frutas, estilo rústico.\",\n    \"price\": 16.99,\n    \"promo_price\": 13.99,\n    \"featured\": false,\n    \"image\": \"assets/images/bolso_naranja.png\",\n    \"category\": \"Bolso\"\n  },\n  {\n    \"id\": 10,\n    \"name\": \"Cesto de navidad\",\n    \"description\": \"Alfombra redonda tejida a mano, 60cm de diámetro, color beige.\",\n    \"price\": 34.99,\n    \"featured\": false,\n    \"image\": \"assets/images/cesta_navidad.png\",\n    \"category\": \"Cesto\"\n  }\n]"
+                            }
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": "*"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
