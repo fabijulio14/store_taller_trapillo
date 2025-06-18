@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:taller_trapillo_store/theme/app_colors.dart';
 
-import '../../../data/models/producto_model.dart';
+import '../../../data/models/product_model.dart';
+import '../../../l10n/generated/app_localizations.dart';
 
-class ProductoList extends StatelessWidget {
-  final List<Producto> productos;
+class ProductList extends StatelessWidget {
+  final List<Product> productsList;
 
-  const ProductoList({super.key, required this.productos});
+  const ProductList({super.key, required this.productsList});
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations localizations = AppLocalizations.of(context)!;
+
     return Scaffold(
-      appBar: AppBar(title: Text('Taller del trapillo'), actions: [Icon(Icons.filter_list)]),
-      backgroundColor: const Color(0xFFE9EEF2),
+      appBar: AppBar(
+        title: Text(localizations.title_app),
+        actions: [Icon(Icons.filter_list)],
+        backgroundColor: AppColors.primary,
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -19,7 +26,10 @@ class ProductoList extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
               child: Center(
-                child: Text('Bolsos', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                child: Text(
+                  localizations.category_handbags,
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             // Grid of images and names
@@ -27,7 +37,7 @@ class ProductoList extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: GridView.builder(
-                  itemCount: productos.length,
+                  itemCount: productsList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 0.89,
@@ -35,25 +45,22 @@ class ProductoList extends StatelessWidget {
                     mainAxisSpacing: 12,
                   ),
                   itemBuilder: (context, index) {
-                    final producto = productos[index];
+                    final product = productsList[index];
                     return Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           GestureDetector(
-                            onTap: () => _showProductDetail(context, producto),
+                            onTap: () => _showProductDetail(context, product),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(16),
                               child: AspectRatio(
                                 aspectRatio: 1.3,
                                 child: Image.asset(
-                                  producto.imagen,
+                                  product.image,
                                   fit: BoxFit.cover,
-                                  errorBuilder: (_, __, ___) => Container(color: Colors.grey[200]),
+                                  errorBuilder: (_, __, ___) => Container(color: AppColors.grey),
                                 ),
                               ),
                             ),
@@ -61,11 +68,11 @@ class ProductoList extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(left: 12, top: 10, right: 12),
                             child: Text(
-                              producto.nombre,
+                              product.name,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
-                                color: Color(0xFF2C3E66),
+                                color: AppColors.textPrimary,
                               ),
                             ),
                           ),
@@ -83,7 +90,7 @@ class ProductoList extends StatelessWidget {
   }
 }
 
-void _showProductDetail(BuildContext context, Producto producto) {
+void _showProductDetail(BuildContext context, Product product) {
   showModalBottomSheet(
     context: context,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
@@ -98,7 +105,7 @@ void _showProductDetail(BuildContext context, Producto producto) {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: Image.asset(
-                    producto.imagen,
+                    product.image,
                     height: 150,
                     fit: BoxFit.cover,
                     errorBuilder: (_, __, ___) => Container(color: Colors.grey[200], height: 150),
@@ -106,13 +113,17 @@ void _showProductDetail(BuildContext context, Producto producto) {
                 ),
               ),
               SizedBox(height: 16),
-              Text(producto.nombre, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              Text(product.name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               SizedBox(height: 8),
-              Text(producto.descripcion, style: TextStyle(fontSize: 16)),
+              Text(product.description, style: TextStyle(fontSize: 16)),
               SizedBox(height: 12),
               Text(
-                '\$${producto.precio}',
-                style: TextStyle(fontSize: 18, color: Colors.green, fontWeight: FontWeight.bold),
+                '\$${product.price}',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: AppColors.primary,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),

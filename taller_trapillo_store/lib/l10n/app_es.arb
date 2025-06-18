@@ -1,0 +1,18 @@
+{
+  "hello": "Hola",
+  "description": "Texto de saludo en español",
+  "title_app": "Taller del trapillo",
+  "home": "Inicio",
+  "cart": "Carrito",
+  "profile": "Perfil",
+  "title_categories": "Categorias",
+  "category_handbags": "Bolsos",
+  "category_baskets": "Canastas",
+  "category_accessories": "Accesorios",
+  "promotions": "Promociones",
+  "welcome_title": "Bienvenido a Trapillo Store",
+  "txt_user": "Usuario",
+  "txt_passw": "Contraseña",
+  "button_enter": "Ingresar"
+
+}
