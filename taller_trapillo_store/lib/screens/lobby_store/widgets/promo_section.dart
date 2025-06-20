@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:taller_trapillo_store/theme/app_colors.dart';
 
+import '../../../data/models/product_model.dart';
 import '../../../l10n/generated/app_localizations.dart';
 
 class PromotionsSection extends StatelessWidget {
-  const PromotionsSection({super.key});
+  final List<Product> productsPromo;
+
+  const PromotionsSection(this.productsPromo, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +22,16 @@ class PromotionsSection extends StatelessWidget {
           height: 100,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: [
-              PromoCard(text: '20% Bolso Lucia', imagePath: 'assets/images/bolso_1.png'),
-              PromoCard(text: 'Envío gratis  \$50', imagePath: 'assets/images/bolso_2.png'),
-            ],
+            children:
+                productsPromo
+                    .where((product) => product.promoPrice != null)
+                    .map(
+                      (product) => PromoCard(
+                        text: '${product.name} - \$${product.promoPrice}',
+                        imagePath: product.image,
+                      ),
+                    )
+                    .toList(),
           ),
         ),
       ],

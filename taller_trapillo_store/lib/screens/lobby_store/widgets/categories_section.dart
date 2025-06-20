@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:taller_trapillo_store/theme/app_colors.dart';
 
 import '../../../data/models/product_model.dart';
-import '../../../data/repository/product_repository.dart';
 import '../../../l10n/generated/app_localizations.dart';
 import 'product_list.dart';
 
 class CategoriesSection extends StatefulWidget {
-  const CategoriesSection({super.key});
+  final List<Product> products;
+  const CategoriesSection({super.key, required this.products});
 
   @override
   State<CategoriesSection> createState() => _CategoriesSectionState();
@@ -21,9 +21,9 @@ class _CategoriesSectionState extends State<CategoriesSection> {
     AppLocalizations localizations = AppLocalizations.of(context)!;
 
     final categories = [
-      localizations.category_handbags,
-      localizations.category_baskets,
-      localizations.category_accessories,
+      {'id': 1, 'name': localizations.category_handbags},
+      {'id': 2, 'name': localizations.category_baskets},
+      {'id': 3, 'name': localizations.category_accessories},
     ];
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16),
@@ -33,27 +33,30 @@ class _CategoriesSectionState extends State<CategoriesSection> {
           final cat = categories[index];
           return ChoiceChip(
             backgroundColor: AppColors.rose,
-            label: Text(cat),
+            label: Text(cat['name'] as String),
             selected: selectedIndex == index,
             onSelected: (selected) {
-              _getProducts().then((products) {
-                Navigator.push(
-                  // ignore: use_build_context_synchronously
-                  context,
-                  MaterialPageRoute(builder: (context) => ProductList(productsList: products)),
-                );
+              setState(() {
+                selectedIndex = index;
               });
+              final filteredProducts = filterProductsByCategory(widget.products, cat['id'] as int);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) =>
+                          ProductList(productsList: filteredProducts, title: cat['name'] as String),
+                ),
+              );
             },
           );
         }),
       ),
     );
   }
-}
 
-Future<List<Product>> _getProducts() async {
-  // Llama al repository para obtener productos
-  final productRepository = ProductRepository();
-  final List<Product> products = await productRepository.getProduct();
-  return products;
+  List<Product> filterProductsByCategory(List<Product> products, int category) {
+    final filtered = products.where((product) => product.category == category).toList();
+    return filtered;
+  }
 }

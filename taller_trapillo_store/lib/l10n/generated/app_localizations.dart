@@ -184,6 +184,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Ingresar'**
   String get button_enter;
+
+  /// No description provided for @txt_best_sellers.
+  ///
+  /// In es, this message translates to:
+  /// **'Lo más vendido'**
+  String get txt_best_sellers;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

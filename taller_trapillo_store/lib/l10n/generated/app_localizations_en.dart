@@ -52,4 +52,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get button_enter => 'Enter';
+
+  @override
+  String get txt_best_sellers => 'Best Sellers';
 }

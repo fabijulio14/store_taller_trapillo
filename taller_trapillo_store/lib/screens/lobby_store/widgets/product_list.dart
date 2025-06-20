@@ -6,8 +6,9 @@ import '../../../l10n/generated/app_localizations.dart';
 
 class ProductList extends StatelessWidget {
   final List<Product> productsList;
+  final String title;
 
-  const ProductList({super.key, required this.productsList});
+  const ProductList({super.key, required this.productsList, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +27,7 @@ class ProductList extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
               child: Center(
-                child: Text(
-                  localizations.category_handbags,
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
+                child: Text(title, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
               ),
             ),
             // Grid of images and names
