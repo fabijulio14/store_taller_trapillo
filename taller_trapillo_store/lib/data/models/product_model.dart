@@ -6,7 +6,7 @@ class Product {
   final double price;
   final double? promoPrice;
   final bool featured;
-  final String category;
+  final int category;
 
   Product({
     required this.id,
