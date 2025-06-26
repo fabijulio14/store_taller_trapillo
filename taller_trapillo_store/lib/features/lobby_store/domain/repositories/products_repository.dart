@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart' show Dio;
 
-import '../models/product_model.dart';
+import '../../data/models/product_model.dart';
 
-class ProductRepository {
+class ProductsRepository {
   final Dio _dio = Dio();
   final String apiUrl = 'http://localhost:3001/getProducts'; // mockoon
 

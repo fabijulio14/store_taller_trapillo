@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:taller_trapillo_store/theme/app_colors.dart';
+import 'package:taller_trapillo_store/core/features/app_colors.dart';
 
-import '../../l10n/generated/app_localizations.dart';
-import '../lobby_store/lobby_store_screen.dart';
+import '../../../l10n/generated/app_localizations.dart';
+import '../../lobby_store/ui/screens/lobby_store_screen.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
@@ -51,9 +51,9 @@ class WelcomeView extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const LobbyStoreView()),
                 );
               },
-              child: const Text(
-                'Ingresar',
-                style: TextStyle(fontSize: 14, color: AppColors.textPrimary),
+              child: Text(
+                localizations.button_enter,
+                style: const TextStyle(fontSize: 14, color: AppColors.textPrimary),
               ),
             ),
           ],

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:taller_trapillo_store/l10n/generated/app_localizations_en.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'l10n/generated/app_localizations.dart';
-import 'screens/welcome/welcome_screen.dart';
+import 'features/welcome/ui/welcome_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -13,7 +13,8 @@
   "welcome_title": "Welcome to Trapillo Store",
   "txt_user": "User",
   "txt_passw": "Password",
-  "button_enter": "Enter"
-
-
+  "button_enter": "Enter",
+  "txt_best_sellers": "Best Sellers",
+  "txt_add_cart": "Add to Cart",
+  "txt_favorito": "Favorites"
 }
