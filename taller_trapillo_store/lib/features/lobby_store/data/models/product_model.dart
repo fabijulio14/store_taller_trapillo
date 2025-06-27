@@ -20,6 +20,7 @@ class Product {
   });
 
   factory Product.fromMap(Map<String, dynamic> map) {
+    // crea un producto a partir de un mapa
     return Product(
       id: map['id'],
       name: map['name'],
@@ -33,6 +34,7 @@ class Product {
   }
 
   Map<String, dynamic> toMap() {
+    // convierte un producto a un mapa
     return {
       'id': id,
       'name': name,
