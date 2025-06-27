@@ -60,5 +60,5 @@ class AppLocalizationsEs extends AppLocalizations {
   String get txt_add_cart => 'Agregar Carrito';
 
   @override
-  String get txt_favorito => 'Favoritos';
+  String get txt_favorite => 'Favoritos';
 }

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:taller_trapillo_store/features/lobby_store/data/models/product_model.dart';
 import 'package:taller_trapillo_store/core/features/app_colors.dart';
 
-import '../../../../commons/widgets/product_detail.dart';
-import '../../../../l10n/generated/app_localizations.dart';
+import 'product_detail.dart';
+import '../../l10n/generated/app_localizations.dart';
 
-class ProductListView extends StatelessWidget {
+class ProductsList extends StatelessWidget {
   final List<Product> productsList;
   final String title;
 
-  const ProductListView({super.key, required this.productsList, required this.title});
+  const ProductsList({super.key, required this.productsList, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +93,6 @@ void _showProductDetail(BuildContext context, Product product) {
   showModalBottomSheet(
     context: context,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-    builder: (context) => ProductDetailSheet(product: product),
+    builder: (context) => ProductDetail(product: product),
   );
 }

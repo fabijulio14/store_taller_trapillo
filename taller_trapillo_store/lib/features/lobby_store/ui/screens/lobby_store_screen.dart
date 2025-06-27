@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:taller_trapillo_store/features/lobby_store/data/providers/get_products_provider.dart';
+import 'package:taller_trapillo_store/features/lobby_store/ui/providers/get_products_provider.dart';
 
 import '../../../../l10n/generated/app_localizations.dart';
 import '../../../../core/features/app_colors.dart';
-import 'best_sellers.dart';
-import 'categories_section.dart';
-import 'product_list_screen.dart';
-import 'promo_section.dart';
+import '../widgets/best_sellers_section.dart';
+import '../widgets/categories_section.dart';
+import '../widgets/promotions_section.dart';
+import '../../../../commons/widgets/products_List.dart';
 
-class LobbyStoreView extends ConsumerWidget {
-  const LobbyStoreView({super.key});
+class LobbyStoreScreen extends ConsumerWidget {
+  const LobbyStoreScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     AppLocalizations localizations = AppLocalizations.of(context)!;
 
     final productsState = ref.watch(productListProvider);
-    final productListNotifier = ref.read(productListProvider.notifier);
+    final favorites = ref.watch(favoritesListProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -71,20 +71,29 @@ class LobbyStoreView extends ConsumerWidget {
         ],
         currentIndex: 0,
         onTap: (index) {
-          if (index == 0) {
-          } else if (index == 1) {
-          } else if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (_) => ProductListView(
-                      title: 'Favoritos',
-                      productsList: productListNotifier.favoriteProducts,
-                    ),
-              ),
-            );
-          } else if (index == 3) {}
+          switch (index) {
+            case 0:
+              // Home
+              break;
+            case 1:
+              // Cart
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (_) =>
+                          ProductsList(title: localizations.txt_favorite, productsList: favorites),
+                ),
+              );
+              break;
+            case 3:
+              // Profile
+              break;
+            default:
+              break;
+          }
         },
       ),
     );

@@ -62,6 +62,6 @@ void _showProductDetail(BuildContext context, Product product) {
   showModalBottomSheet(
     context: context,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-    builder: (context) => ProductDetailSheet(product: product),
+    builder: (context) => ProductDetail(product: product),
   );
 }

@@ -197,11 +197,11 @@ abstract class AppLocalizations {
   /// **'Agregar Carrito'**
   String get txt_add_cart;
 
-  /// No description provided for @txt_favorito.
+  /// No description provided for @txt_favorite.
   ///
   /// In es, this message translates to:
   /// **'Favoritos'**
-  String get txt_favorito;
+  String get txt_favorite;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:taller_trapillo_store/l10n/generated/app_localizations.dart';
 
 import '../../core/features/app_colors.dart';
 import '../../features/lobby_store/data/models/product_model.dart';
-import '../../features/lobby_store/data/providers/get_products_provider.dart';
+import '../../features/lobby_store/ui/providers/get_products_provider.dart';
 
-class ProductDetailSheet extends ConsumerWidget {
+class ProductDetail extends ConsumerWidget {
   final Product product;
 
-  const ProductDetailSheet({super.key, required this.product});
+  const ProductDetail({super.key, required this.product});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productListNotifier = ref.read(productListProvider.notifier);
-
     AppLocalizations localizations = AppLocalizations.of(context)!;
+
+    final isFavorite = ref.watch(
+      favoritesListProvider.select((favorites) => favorites.any((p) => p.id == product.id)),
+    );
 
     return Stack(
       children: [
@@ -43,16 +46,16 @@ class ProductDetailSheet extends ConsumerWidget {
                   Spacer(),
                   IconButton(
                     icon: Icon(
-                      productListNotifier.isFavorite(product.id)
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color:
-                          productListNotifier.isFavorite(product.id)
-                              ? AppColors.primary
-                              : AppColors.textPrimary,
+                      isFavorite ? Icons.favorite : Icons.favorite_border,
+                      color: isFavorite ? AppColors.primary : AppColors.textPrimary,
                     ),
                     onPressed: () {
-                      productListNotifier.toggleFavorite(product.id);
+                      final notifier = ref.read(favoritesListProvider.notifier);
+                      if (isFavorite) {
+                        notifier.removeFavorite(product);
+                      } else {
+                        notifier.addFavorite(product);
+                      }
                     },
                   ),
                 ],
@@ -61,7 +64,9 @@ class ProductDetailSheet extends ConsumerWidget {
               Text(product.description, style: TextStyle(fontSize: 16)),
               SizedBox(height: 12),
               Text(
-                '\$${product.price}',
+                NumberFormat.simpleCurrency(
+                  locale: Localizations.localeOf(context).toString(),
+                ).format(product.price),
                 style: TextStyle(
                   fontSize: 18,
                   color: AppColors.primary,
