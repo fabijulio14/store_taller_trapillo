@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:taller_trapillo_store/theme/app_colors.dart';
+import 'package:taller_trapillo_store/features/lobby_store/data/models/product_model.dart';
+import 'package:taller_trapillo_store/core/features/app_colors.dart';
 
-import '../../../l10n/generated/app_localizations.dart';
+import '../../../../commons/widgets/product_detail.dart';
+import '../../../../l10n/generated/app_localizations.dart';
 
 class PromotionsSection extends StatelessWidget {
-  const PromotionsSection({super.key});
+  final List<Product> productsPromo;
+
+  const PromotionsSection(this.productsPromo, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +21,37 @@ class PromotionsSection extends StatelessWidget {
         SizedBox(height: 8),
         SizedBox(
           height: 100,
-          child: ListView(
+          child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            children: [
-              PromoCard(text: '20% Bolso Lucia', imagePath: 'assets/images/bolso_1.png'),
-              PromoCard(text: 'Envío gratis  \$50', imagePath: 'assets/images/bolso_2.png'),
-            ],
+            itemCount: productsPromo.where((product) => product.promoPrice != null).length,
+            itemBuilder: (context, index) {
+              final promoProducts =
+                  productsPromo.where((product) => product.promoPrice != null).toList();
+              final product = promoProducts[index];
+              return InkWell(
+                borderRadius: BorderRadius.circular(12),
+                onTap: () {
+                  _showProductDetail(context, product);
+                },
+                child: PromoCard(
+                  text: '${product.name} - \$${product.promoPrice}',
+                  imagePath: product.image,
+                ),
+              );
+            },
           ),
         ),
       ],
     );
   }
+}
+
+void _showProductDetail(BuildContext context, Product product) {
+  showModalBottomSheet(
+    context: context,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    builder: (context) => ProductDetail(product: product),
+  );
 }
 
 class PromoCard extends StatelessWidget {

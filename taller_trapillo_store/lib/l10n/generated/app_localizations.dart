@@ -184,6 +184,24 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Ingresar'**
   String get button_enter;
+
+  /// No description provided for @txt_best_sellers.
+  ///
+  /// In es, this message translates to:
+  /// **'Lo más vendido'**
+  String get txt_best_sellers;
+
+  /// No description provided for @txt_add_cart.
+  ///
+  /// In es, this message translates to:
+  /// **'Agregar Carrito'**
+  String get txt_add_cart;
+
+  /// No description provided for @txt_favorite.
+  ///
+  /// In es, this message translates to:
+  /// **'Favoritos'**
+  String get txt_favorite;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
