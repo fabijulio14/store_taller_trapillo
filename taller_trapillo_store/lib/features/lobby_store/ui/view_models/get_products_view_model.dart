@@ -1,55 +1,34 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:taller_trapillo_store/l10n/generated/app_localizations.dart';
 
-import '../../domain/repositories/products_repository.dart';
 import '../../data/models/product_model.dart';
+import '../providers/products_repository_provider.dart';
 
 part 'get_products_view_model.g.dart';
 
-//instancia del repositorio de producto
-final productsRepository = ProductsRepository();
-
-//proveedor para obtener los productos
 @riverpod
-class ProductList extends _$ProductList {
-  //final Set<int> _favoriteIds = {};
-
+class ProductListViewModel extends _$ProductListViewModel {
   @override
   Future<List<Product>> build() async {
-    //llamada al repositorio para obtener los productos
-    return productsRepository.getProduct();
-  }
-}
-
-@riverpod
-class FavoritesList extends _$FavoritesList {
-  @override
-  List<Product> build() => [];
-
-  // Agrega un producto
-  void addFavorite(Product product) {
-    if (!state.contains(product)) {
-      state = [...state, product];
-    }
+    //llamada al repositorio a través del provider
+    final repository = ref.read(productsRepositoryProvider);
+    return repository.getProduct();
   }
 
-  // Quita un producto
-  void removeFavorite(Product product) {
-    state = state.where((p) => p.id != product.id).toList();
+  List<Product> filterProductsByCategory(List<Product> products, String category) {
+    return products.where((product) => product.category == category).toList();
   }
 
-  // Verifica si un producto es favorito
-  bool isFavorite(Product product) {
-    return state.any((p) => p.id == product.id);
-  }
-
-  // Consulta la lista de favoritos
-  List<Product> get favorites => state;
-
-  void onPressedFavorite(Product product) {
-    if (isFavorite(product)) {
-      removeFavorite(product);
-    } else {
-      addFavorite(product);
+  String getCategoryName(String categoryId, AppLocalizations localizations) {
+    switch (categoryId) {
+      case 'handbags':
+        return localizations.category_handbags;
+      case 'baskets':
+        return localizations.category_baskets;
+      case 'accessories':
+        return localizations.category_accessories;
+      default:
+        return categoryId;
     }
   }
 }

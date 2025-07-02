@@ -5,6 +5,7 @@ import 'package:taller_trapillo_store/l10n/generated/app_localizations.dart';
 
 import '../../core/features/app_colors.dart';
 import '../../features/lobby_store/data/models/product_model.dart';
+import '../../features/lobby_store/ui/view_models/get_favorite_list_view_model.dart';
 import '../../features/lobby_store/ui/view_models/get_products_view_model.dart';
 
 class ProductDetail extends ConsumerWidget {
@@ -17,7 +18,9 @@ class ProductDetail extends ConsumerWidget {
     AppLocalizations localizations = AppLocalizations.of(context)!;
 
     final isFavorite = ref.watch(
-      favoritesListProvider.select((favorites) => favorites.any((p) => p.id == product.id)),
+      favoritesListViewModelProvider.select(
+        (favorites) => favorites.any((p) => p.id == product.id),
+      ),
     );
 
     return Stack(
@@ -50,7 +53,7 @@ class ProductDetail extends ConsumerWidget {
                       color: isFavorite ? AppColors.primary : AppColors.textPrimary,
                     ),
                     onPressed: () {
-                      final notifier = ref.read(favoritesListProvider.notifier);
+                      final notifier = ref.read(favoritesListViewModelProvider.notifier);
                       if (isFavorite) {
                         notifier.removeFavorite(product);
                       } else {

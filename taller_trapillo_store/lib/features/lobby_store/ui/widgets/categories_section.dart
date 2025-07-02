@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taller_trapillo_store/features/lobby_store/data/models/product_model.dart';
 import 'package:taller_trapillo_store/core/features/app_colors.dart';
 
 import '../../../../l10n/generated/app_localizations.dart';
 import '../../../../commons/widgets/products_list.dart';
+import '../view_models/get_products_view_model.dart';
 
-class CategoriesSection extends StatefulWidget {
+class CategoriesSection extends ConsumerStatefulWidget {
   final List<Product> products;
   const CategoriesSection({super.key, required this.products});
 
   @override
-  State<CategoriesSection> createState() => _CategoriesSectionState();
+  ConsumerState<CategoriesSection> createState() => _CategoriesSectionState();
 }
 
-class _CategoriesSectionState extends State<CategoriesSection> {
+class _CategoriesSectionState extends ConsumerState<CategoriesSection> {
   int? selectedIndex;
 
   @override
   Widget build(BuildContext context) {
+    final filterViewModel = ref.read(productListViewModelProvider.notifier);
+
     AppLocalizations localizations = AppLocalizations.of(context)!;
 
     final categories = [
@@ -31,7 +35,7 @@ class _CategoriesSectionState extends State<CategoriesSection> {
         spacing: 8,
         children: List.generate(categories.length, (index) {
           final cat = categories[index];
-          final categoryName = getCategoryName(cat['id'] as String, localizations);
+          final categoryName = filterViewModel.getCategoryName(cat['id'] as String, localizations);
           return ChoiceChip(
             backgroundColor: AppColors.rose,
             label: Text(categoryName),
@@ -40,7 +44,7 @@ class _CategoriesSectionState extends State<CategoriesSection> {
               setState(() {
                 selectedIndex = index;
               });
-              final filteredProducts = filterProductsByCategory(
+              final filteredProducts = filterViewModel.filterProductsByCategory(
                 widget.products,
                 cat['id'] as String,
               );
@@ -57,23 +61,5 @@ class _CategoriesSectionState extends State<CategoriesSection> {
         }),
       ),
     );
-  }
-
-  List<Product> filterProductsByCategory(List<Product> products, String category) {
-    final filtered = products.where((product) => product.category == category).toList();
-    return filtered;
-  }
-
-  String getCategoryName(String categoryId, AppLocalizations localizations) {
-    switch (categoryId) {
-      case 'handbags':
-        return localizations.category_handbags;
-      case 'baskets':
-        return localizations.category_baskets;
-      case 'accessories':
-        return localizations.category_accessories;
-      default:
-        return categoryId;
-    }
   }
 }

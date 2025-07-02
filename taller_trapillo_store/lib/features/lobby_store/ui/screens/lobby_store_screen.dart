@@ -4,6 +4,7 @@ import 'package:taller_trapillo_store/features/lobby_store/ui/view_models/get_pr
 
 import '../../../../l10n/generated/app_localizations.dart';
 import '../../../../core/features/app_colors.dart';
+import '../view_models/get_favorite_list_view_model.dart';
 import '../widgets/best_sellers_section.dart';
 import '../widgets/categories_section.dart';
 import '../widgets/promotions_section.dart';
@@ -16,8 +17,8 @@ class LobbyStoreScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     AppLocalizations localizations = AppLocalizations.of(context)!;
 
-    final productsState = ref.watch(productListProvider);
-    final favorites = ref.watch(favoritesListProvider);
+    final productsState = ref.watch(productListViewModelProvider);
+    final favorites = ref.watch(favoritesListViewModelProvider);
 
     return Scaffold(
       appBar: AppBar(
