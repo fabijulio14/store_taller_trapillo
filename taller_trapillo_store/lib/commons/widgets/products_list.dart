@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:taller_trapillo_store/theme/app_colors.dart';
+import 'package:taller_trapillo_store/features/lobby_store/data/models/product_model.dart';
+import 'package:taller_trapillo_store/core/features/app_colors.dart';
 
-import '../../../data/models/product_model.dart';
-import '../../../l10n/generated/app_localizations.dart';
+import 'product_detail.dart';
+import '../../l10n/generated/app_localizations.dart';
 
-class ProductList extends StatelessWidget {
+class ProductsList extends StatelessWidget {
   final List<Product> productsList;
+  final String title;
 
-  const ProductList({super.key, required this.productsList});
+  const ProductsList({super.key, required this.productsList, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +28,7 @@ class ProductList extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
               child: Center(
-                child: Text(
-                  localizations.category_handbags,
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
+                child: Text(title, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
               ),
             ),
             // Grid of images and names
@@ -94,39 +93,6 @@ void _showProductDetail(BuildContext context, Product product) {
   showModalBottomSheet(
     context: context,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-    builder:
-        (context) => Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    product.image,
-                    height: 150,
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(color: Colors.grey[200], height: 150),
-                  ),
-                ),
-              ),
-              SizedBox(height: 16),
-              Text(product.name, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              SizedBox(height: 8),
-              Text(product.description, style: TextStyle(fontSize: 16)),
-              SizedBox(height: 12),
-              Text(
-                '\$${product.price}',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: AppColors.primary,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
+    builder: (context) => ProductDetail(product: product),
   );
 }

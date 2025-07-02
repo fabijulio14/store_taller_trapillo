@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:taller_trapillo_store/l10n/generated/app_localizations_en.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'l10n/generated/app_localizations.dart';
-import 'screens/welcome/welcome_screen.dart';
+import 'features/login/ui/screen/login_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const WelcomeView(),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

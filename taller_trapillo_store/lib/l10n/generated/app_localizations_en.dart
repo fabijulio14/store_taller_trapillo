@@ -52,4 +52,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get button_enter => 'Enter';
+
+  @override
+  String get txt_best_sellers => 'Best Sellers';
+
+  @override
+  String get txt_add_cart => 'Add to Cart';
+
+  @override
+  String get txt_favorite => 'Favoritos';
 }
