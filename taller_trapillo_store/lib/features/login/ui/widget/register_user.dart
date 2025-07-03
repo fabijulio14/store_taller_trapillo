@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:taller_trapillo_store/core/routing/app_routes.dart';
 
 import '../../../../core/features/app_colors.dart';
 import 'package:http/http.dart' as http;
@@ -100,16 +101,32 @@ class _RegisterUserState extends State<RegisterUser> {
                       'trapillostore-20191-default-rtdb.firebaseio.com',
                       'user_list.json',
                     );
-                    http.post(
-                      url,
-                      headers: {'Content-Type': 'application/json'},
-                      body: json.encode({
-                        'name': nameController.text,
-                        'email': emailController.text,
-                        'password': passwordController.text,
-                      }),
-                    );
-                  } // URL del endpoint de registro
+                    try {
+                      final response = await http.post(
+                        url,
+                        headers: {'Content-Type': 'application/json'},
+                        body: json.encode({
+                          'name': nameController.text,
+                          'email': emailController.text,
+                          'password': passwordController.text,
+                        }),
+                      );
+
+                      if (response.statusCode == 200) {
+                        // Registro exitoso, regresar al login
+                        if (context.mounted) {
+                          context.goToLogin();
+                        }
+                      }
+                    } catch (e) {
+                      // Manejar error con ScaffoldMessenger
+                      if (context.mounted) {
+                        ScaffoldMessenger.of(
+                          context,
+                        ).showSnackBar(SnackBar(content: Text('Error en el registro: $e')));
+                      }
+                    }
+                  }
                 },
                 child: Text("Registrarse"),
               ),

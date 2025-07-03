@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:taller_trapillo_store/core/features/app_colors.dart';
+import 'package:taller_trapillo_store/core/routing/app_routes.dart';
 
 import '../../../../l10n/generated/app_localizations.dart';
-import '../../../lobby_store/ui/screens/lobby_store_screen.dart';
-import '../widget/register_user.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -82,10 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegisterUser()),
-                    );
+                    context.goToRegister();
                   },
                   child: Text('Registrarse', style: TextStyle(color: AppColors.primary)),
                 ),
@@ -99,10 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // Formulario válido, proceder con el login
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const LobbyStoreScreen()),
-                    );
+                    context.goToStore();
                   }
                 },
                 child: Text(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:taller_trapillo_store/features/lobby_store/ui/view_models/get_products_view_model.dart';
+import 'package:taller_trapillo_store/core/routing/app_routes.dart';
+import 'package:taller_trapillo_store/features/lobby_store/ui/view_models/product_list_view_model.dart';
 
 import '../../../../l10n/generated/app_localizations.dart';
 import '../../../../core/features/app_colors.dart';
-import '../view_models/get_favorite_list_view_model.dart';
+import '../view_models/favorite_list_view_model.dart';
 import '../widgets/best_sellers_section.dart';
 import '../widgets/categories_section.dart';
 import '../widgets/promotions_section.dart';
@@ -27,7 +28,7 @@ class LobbyStoreScreen extends ConsumerWidget {
           IconButton(
             icon: Icon(Icons.logout),
             onPressed: () {
-              Navigator.of(context).pop();
+              context.goToLogin();
             },
           ),
         ],

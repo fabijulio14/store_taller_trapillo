@@ -5,7 +5,7 @@ import 'package:taller_trapillo_store/core/features/app_colors.dart';
 
 import '../../../../l10n/generated/app_localizations.dart';
 import '../../../../commons/widgets/products_list.dart';
-import '../view_models/get_products_view_model.dart';
+import '../view_models/product_list_view_model.dart';
 
 class CategoriesSection extends ConsumerStatefulWidget {
   final List<Product> products;
