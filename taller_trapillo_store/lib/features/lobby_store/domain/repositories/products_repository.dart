@@ -1,19 +1,30 @@
-import 'package:dio/dio.dart' show Dio;
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/models/product_model.dart';
+import '../../data/repositories/products_repository_impl.dart';
 
-class ProductsRepository {
-  final Dio _dio = Dio();
-  final String apiUrl = 'http://localhost:3001/getProducts'; // mockoon
+part 'products_repository.g.dart';
 
-  // Obtener todos los productos desde el API
+/// Interfaz del repositorio de productos (Domain Layer)
+abstract class ProductsRepository {
+  Future<List<Product>> getProduct();
+}
+
+class ProductsRepositoryAdapter implements ProductsRepository {
+  final ProductsRepositoryInterface _repositoryImpl;
+
+  ProductsRepositoryAdapter(this._repositoryImpl);
+
+  @override
   Future<List<Product>> getProduct() async {
-    final response = await _dio.get(apiUrl);
-    if (response.statusCode == 200) {
-      final List<dynamic> data = response.data;
-      return data.map((item) => Product.fromMap(item)).toList();
-    } else {
-      throw Exception('Error al cargar productos');
-    }
+    return await _repositoryImpl.getProducts();
   }
+}
+
+/// Provider para el repositorio de productos
+@riverpod
+ProductsRepository productsRepositoryDomain(Ref ref) {
+  final repositoryImpl = ref.watch(productsRepositoryProvider);
+  return ProductsRepositoryAdapter(repositoryImpl);
 }

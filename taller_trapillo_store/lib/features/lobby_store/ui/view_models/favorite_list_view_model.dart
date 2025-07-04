@@ -2,7 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../data/models/product_model.dart';
 
-part 'get_favorite_list_view_model.g.dart';
+part 'favorite_list_view_model.g.dart';
 
 @riverpod
 class FavoritesListViewModel extends _$FavoritesListViewModel {

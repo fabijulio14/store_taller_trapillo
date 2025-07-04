@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_products_view_model.dart';
+part of 'product_list_view_model.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
 String _$productListViewModelHash() =>
-    r'058acea5ec5d26200d49d97f89f495301a800138';
+    r'5081c3772323494b046bd7369a231bd11e5206cb';
 
 /// See also [ProductListViewModel].
 @ProviderFor(ProductListViewModel)
