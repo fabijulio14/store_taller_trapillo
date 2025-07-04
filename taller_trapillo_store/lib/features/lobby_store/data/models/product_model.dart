@@ -1,49 +1,29 @@
-class Product {
-  final int id;
-  final String name;
-  final String description;
-  final String image;
-  final double price;
-  final double? promoPrice;
-  final bool featured;
-  final String category;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  Product({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.image,
-    required this.price,
-    this.promoPrice,
-    this.featured = false,
-    required this.category,
-  });
+part 'product_model.freezed.dart';
+part 'product_model.g.dart';
 
-  factory Product.fromMap(Map<String, dynamic> map) {
-    // crea un producto a partir de un mapa
-    return Product(
-      id: map['id'],
-      name: map['name'],
-      description: map['description'],
-      image: map['image'],
-      price: (map['price'] as num).toDouble(),
-      promoPrice: map['promo_price'] != null ? (map['promo_price'] as num).toDouble() : null,
-      featured: map['featured'] ?? false,
-      category: map['category'],
-    );
-  }
+@freezed
+class Product with _$Product {
+  const factory Product({
+    required int id,
+    required String name,
+    required String description,
+    required String image,
+    required double price,
+    double? promoPrice,
+    @Default(false) bool featured,
+    required String category,
+  }) = _Product;
 
-  Map<String, dynamic> toMap() {
-    // convierte un producto a un mapa
-    return {
-      'id': id,
-      'name': name,
-      'description': description,
-      'image': image,
-      'price': price,
-      'promo_price': promoPrice,
-      'featured': featured,
-      'category': category,
-    };
+  factory Product.fromJson(Map<String, dynamic> json) => _$ProductFromJson(json);
+
+  factory Product.fromJsonCustom(Map<String, dynamic> json) {
+    // Crear un mapa modificado para manejar el mapeo de promo_price
+    final modifiedJson = Map<String, dynamic>.from(json);
+    if (modifiedJson.containsKey('promo_price')) {
+      modifiedJson['promoPrice'] = modifiedJson.remove('promo_price');
+    }
+    return _$ProductFromJson(modifiedJson);
   }
 }

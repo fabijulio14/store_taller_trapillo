@@ -4,7 +4,7 @@ import 'package:taller_trapillo_store/l10n/generated/app_localizations.dart';
 import '../../data/models/product_model.dart';
 import '../providers/products_repository_provider.dart';
 
-part 'get_products_view_model.g.dart';
+part 'product_list_view_model.g.dart';
 
 @riverpod
 class ProductListViewModel extends _$ProductListViewModel {
