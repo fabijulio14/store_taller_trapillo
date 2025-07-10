@@ -202,6 +202,84 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Favoritos'**
   String get txt_favorite;
+
+  /// No description provided for @txtRegister.
+  ///
+  /// In es, this message translates to:
+  /// **'Registrarse'**
+  String get txtRegister;
+
+  /// No description provided for @txtClose.
+  ///
+  /// In es, this message translates to:
+  /// **'Cerrar'**
+  String get txtClose;
+
+  /// No description provided for @validationPleaseEnterUser.
+  ///
+  /// In es, this message translates to:
+  /// **'Por favor ingresa tu usuario'**
+  String get validationPleaseEnterUser;
+
+  /// No description provided for @validationPleaseEnterPassword.
+  ///
+  /// In es, this message translates to:
+  /// **'Por favor ingresa tu contraseña'**
+  String get validationPleaseEnterPassword;
+
+  /// No description provided for @validationPasswordMinLength.
+  ///
+  /// In es, this message translates to:
+  /// **'La contraseña debe tener al menos 4 caracteres'**
+  String get validationPasswordMinLength;
+
+  /// No description provided for @validationEnterName.
+  ///
+  /// In es, this message translates to:
+  /// **'Ingrese su nombre'**
+  String get validationEnterName;
+
+  /// No description provided for @validationEnterValidEmail.
+  ///
+  /// In es, this message translates to:
+  /// **'Ingrese un correo válido'**
+  String get validationEnterValidEmail;
+
+  /// No description provided for @txtName.
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre'**
+  String get txtName;
+
+  /// No description provided for @txtEmail.
+  ///
+  /// In es, this message translates to:
+  /// **'Correo electrónico'**
+  String get txtEmail;
+
+  /// No description provided for @txtConfirmPassword.
+  ///
+  /// In es, this message translates to:
+  /// **'Confirmar contraseña'**
+  String get txtConfirmPassword;
+
+  /// No description provided for @txtUserRegistration.
+  ///
+  /// In es, this message translates to:
+  /// **'Registro de Usuario'**
+  String get txtUserRegistration;
+
+  /// No description provided for @msgRegistrationSuccess.
+  ///
+  /// In es, this message translates to:
+  /// **'Registro exitoso'**
+  String get msgRegistrationSuccess;
+
+  /// No description provided for @msgRegistrationError.
+  ///
+  /// In es, this message translates to:
+  /// **'Error en el registro'**
+  String get msgRegistrationError;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

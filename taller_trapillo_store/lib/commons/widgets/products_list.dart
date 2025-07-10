@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:taller_trapillo_store/features/lobby_store/data/models/product_model.dart';
 import 'package:taller_trapillo_store/core/features/app_colors.dart';
 
+import '../../features/products/data/models/product_model.dart';
 import 'product_detail.dart';
 import '../../l10n/generated/app_localizations.dart';
 

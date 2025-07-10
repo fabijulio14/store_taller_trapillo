@@ -16,5 +16,18 @@
   "button_enter": "Ingresar",
   "txt_best_sellers": "Lo más vendido",
   "txt_add_cart": "Agregar Carrito",
-  "txt_favorite": "Favoritos"
+  "txt_favorite": "Favoritos",
+  "txtRegister": "Registrarse",
+  "txtClose": "Cerrar",
+  "validationPleaseEnterUser": "Por favor ingresa tu usuario",
+  "validationPleaseEnterPassword": "Por favor ingresa tu contraseña",
+  "validationPasswordMinLength": "La contraseña debe tener al menos 4 caracteres",
+  "validationEnterName": "Ingrese su nombre",
+  "validationEnterValidEmail": "Ingrese un correo válido",
+  "txtName": "Nombre",
+  "txtEmail": "Correo electrónico",
+  "txtConfirmPassword": "Confirmar contraseña",
+  "txtUserRegistration": "Registro de Usuario",
+  "msgRegistrationSuccess": "Registro exitoso",
+  "msgRegistrationError": "Error en el registro"
 }

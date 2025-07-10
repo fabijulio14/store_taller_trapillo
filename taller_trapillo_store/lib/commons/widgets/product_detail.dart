@@ -4,9 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:taller_trapillo_store/l10n/generated/app_localizations.dart';
 
 import '../../core/features/app_colors.dart';
-import '../../features/lobby_store/data/models/product_model.dart';
-import '../../features/lobby_store/ui/view_models/get_favorite_list_view_model.dart';
-import '../../features/lobby_store/ui/view_models/get_products_view_model.dart';
+import '../../features/products/data/models/product_model.dart';
+import '../../features/products/ui/view_models/favorite_list_view_model.dart';
 
 class ProductDetail extends ConsumerWidget {
   final Product product;
@@ -100,7 +99,7 @@ class ProductDetail extends ConsumerWidget {
           child: IconButton(
             icon: Icon(Icons.close),
             onPressed: () => Navigator.of(context).pop(),
-            tooltip: 'Cerrar',
+            tooltip: localizations.txtClose,
           ),
         ),
       ],
