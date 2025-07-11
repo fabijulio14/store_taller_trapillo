@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../domain/repositories/user_repository.dart';
-import '../datasources/user_remote_datasource.dart';
+import '../datasources/user_remote_datasource_impl.dart';
 import '../models/user_registration_model.dart';
 import '../../domain/datasource/user_remote_datasource.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

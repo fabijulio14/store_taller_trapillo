@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/datasource/products_remote_datasource.dart';
 import '../../domain/repositories/products_repository.dart';
 import '../models/product_model.dart';
-import '../datasources/products_remote_datasource.dart';
+import '../datasources/products_remote_datasource_impl.dart';
 
 part 'products_repository_impl.g.dart';
 

@@ -5,7 +5,7 @@ import '../../../../core/providers/dio_provider.dart';
 import '../models/user_registration_model.dart';
 import '../../domain/datasource/user_remote_datasource.dart';
 
-part 'user_remote_datasource.g.dart';
+part 'user_remote_datasource_impl.g.dart';
 
 class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   final Dio _dio;

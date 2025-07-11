@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_remote_datasource.dart';
+part of 'user_remote_datasource_impl.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
 String _$userRemoteDataSourceHash() =>
-    r'0f166783cece5d6b1721330125364d53735fc62d';
+    r'd978955ac29b2cdb7296ea02878a33ec5b661572';
 
 /// See also [userRemoteDataSource].
 @ProviderFor(userRemoteDataSource)
