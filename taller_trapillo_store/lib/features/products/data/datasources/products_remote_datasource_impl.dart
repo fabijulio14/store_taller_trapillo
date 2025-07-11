@@ -6,7 +6,7 @@ import '../../domain/datasource/products_remote_datasource.dart';
 import '../models/product_model.dart';
 import '../../../../core/providers/dio_provider.dart';
 
-part 'products_remote_datasource.g.dart';
+part 'products_remote_datasource_impl.g.dart';
 
 /// Implementación del datasource remoto
 class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
