@@ -60,5 +60,44 @@ class AppLocalizationsEn extends AppLocalizations {
   String get txt_add_cart => 'Add to Cart';
 
   @override
-  String get txt_favorite => 'Favoritos';
+  String get txt_favorite => 'Favorites';
+
+  @override
+  String get txtRegister => 'Register';
+
+  @override
+  String get txtClose => 'Close';
+
+  @override
+  String get validationPleaseEnterUser => 'Please enter your user';
+
+  @override
+  String get validationPleaseEnterPassword => 'Please enter your password';
+
+  @override
+  String get validationPasswordMinLength => 'Password must be at least 4 characters';
+
+  @override
+  String get validationEnterName => 'Enter your name';
+
+  @override
+  String get validationEnterValidEmail => 'Enter a valid email';
+
+  @override
+  String get txtName => 'Name';
+
+  @override
+  String get txtEmail => 'Email';
+
+  @override
+  String get txtConfirmPassword => 'Confirm password';
+
+  @override
+  String get txtUserRegistration => 'User Registration';
+
+  @override
+  String get msgRegistrationSuccess => 'Registration successful';
+
+  @override
+  String get msgRegistrationError => 'Registration error';
 }
