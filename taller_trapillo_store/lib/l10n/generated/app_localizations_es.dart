@@ -100,4 +100,22 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get msgRegistrationError => 'Error en el registro';
+
+  @override
+  String get msgLoginSuccess => 'Login exitoso';
+
+  @override
+  String get msgAuthenticationError => 'Error de autenticación. Verifica tus credenciales.';
+
+  @override
+  String get validationPleaseEnterEmail => 'Por favor ingresa tu email';
+
+  @override
+  String get validationEmailInvalid => 'Por favor ingresa un email válido';
+
+  @override
+  String get validationPasswordMinLength6 => 'La contraseña debe tener al menos 6 caracteres';
+
+  @override
+  String get lblEmail => 'Email';
 }
