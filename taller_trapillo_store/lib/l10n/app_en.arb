@@ -29,5 +29,11 @@
   "txtConfirmPassword": "Confirm password",
   "txtUserRegistration": "User Registration",
   "msgRegistrationSuccess": "Registration successful",
-  "msgRegistrationError": "Registration error"
+  "msgRegistrationError": "Registration error",
+  "msgLoginSuccess": "Login successful",
+  "msgAuthenticationError": "Authentication error. Check your credentials.",
+  "validationPleaseEnterEmail": "Please enter your email",
+  "validationEmailInvalid": "Please enter a valid email",
+  "validationPasswordMinLength6": "Password must be at least 6 characters",
+  "lblEmail": "Email"
 }

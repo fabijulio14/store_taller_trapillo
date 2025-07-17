@@ -49,3 +49,38 @@ app.*.map.json
 
 # Ignorar pubspec.lock
 pubspec.lock
+
+# Ignorar todas las plataformas Flutter generadas
+/windows/
+/linux/
+/web/
+/ios/
+/macos/
+/android/
+
+# Archivos específicos de plataformas Flutter generados automáticamente
+**/windows/flutter/generated_plugin*
+**/linux/flutter/generated_plugin*
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/web/index.html
+**/web/manifest.json
+**/web/flutter_service_worker.js
+
+# Archivos de configuración de iOS generados
+/ios/Runner.xcworkspace/
+/ios/Runner.xcodeproj/project.xcworkspace/
+/ios/Runner.xcodeproj/xcuserdata/
+/ios/.symlinks/
+/ios/Flutter/flutter_export_environment.sh
+
+# Archivos de Android generados
+/android/.gradle/
+/android/captures/
+/android/gradle/
+/android/gradlew
+/android/gradlew.bat
+/android/local.properties
+/android/app/src/main/kotlin/
+
+# Firebase configuration (contains sensitive API keys)
+lib/firebase_options.dart

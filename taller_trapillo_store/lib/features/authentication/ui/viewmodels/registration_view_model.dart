@@ -5,10 +5,8 @@ import '../../data/repositories/user_repository_impl.dart';
 
 part 'registration_view_model.g.dart';
 
-// Estados del registro
 enum RegistrationState { initial, loading, success, error }
 
-// Notifier para manejar el estado del registro
 @riverpod
 class RegistrationViewModel extends _$RegistrationViewModel {
   @override

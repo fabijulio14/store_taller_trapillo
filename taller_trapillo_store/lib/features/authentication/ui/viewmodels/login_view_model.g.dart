@@ -1,30 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_remote_datasource_impl.dart';
+part of 'login_view_model.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userRemoteDataSourceHash() =>
-    r'56c205e73e307673f6754be9ac14e613c8ba0ef6';
+String _$loginViewModelHash() => r'ca9fc25599c33fa2429904b3a6c197018df13fc0';
 
-/// See also [userRemoteDataSource].
-@ProviderFor(userRemoteDataSource)
-final userRemoteDataSourceProvider =
-    AutoDisposeProvider<UserRemoteDataSource>.internal(
-      userRemoteDataSource,
-      name: r'userRemoteDataSourceProvider',
+/// See also [LoginViewModel].
+@ProviderFor(LoginViewModel)
+final loginViewModelProvider =
+    AutoDisposeNotifierProvider<LoginViewModel, LoginState>.internal(
+      LoginViewModel.new,
+      name: r'loginViewModelProvider',
       debugGetCreateSourceHash:
           const bool.fromEnvironment('dart.vm.product')
               ? null
-              : _$userRemoteDataSourceHash,
+              : _$loginViewModelHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef UserRemoteDataSourceRef = AutoDisposeProviderRef<UserRemoteDataSource>;
+typedef _$LoginViewModel = AutoDisposeNotifier<LoginState>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
