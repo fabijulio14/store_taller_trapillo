@@ -280,42 +280,6 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Error en el registro'**
   String get msgRegistrationError;
-
-  /// No description provided for @msgLoginSuccess.
-  ///
-  /// In es, this message translates to:
-  /// **'Login exitoso'**
-  String get msgLoginSuccess;
-
-  /// No description provided for @msgAuthenticationError.
-  ///
-  /// In es, this message translates to:
-  /// **'Error de autenticación. Verifica tus credenciales.'**
-  String get msgAuthenticationError;
-
-  /// No description provided for @validationPleaseEnterEmail.
-  ///
-  /// In es, this message translates to:
-  /// **'Por favor ingresa tu email'**
-  String get validationPleaseEnterEmail;
-
-  /// No description provided for @validationEmailInvalid.
-  ///
-  /// In es, this message translates to:
-  /// **'Por favor ingresa un email válido'**
-  String get validationEmailInvalid;
-
-  /// No description provided for @validationPasswordMinLength6.
-  ///
-  /// In es, this message translates to:
-  /// **'La contraseña debe tener al menos 6 caracteres'**
-  String get validationPasswordMinLength6;
-
-  /// No description provided for @lblEmail.
-  ///
-  /// In es, this message translates to:
-  /// **'Email'**
-  String get lblEmail;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

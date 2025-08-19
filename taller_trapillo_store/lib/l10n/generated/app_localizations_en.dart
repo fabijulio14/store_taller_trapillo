@@ -100,22 +100,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get msgRegistrationError => 'Registration error';
-
-  @override
-  String get msgLoginSuccess => 'Login successful';
-
-  @override
-  String get msgAuthenticationError => 'Authentication error. Check your credentials.';
-
-  @override
-  String get validationPleaseEnterEmail => 'Please enter your email';
-
-  @override
-  String get validationEmailInvalid => 'Please enter a valid email';
-
-  @override
-  String get validationPasswordMinLength6 => 'Password must be at least 6 characters';
-
-  @override
-  String get lblEmail => 'Email';
 }
