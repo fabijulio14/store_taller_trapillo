@@ -91,7 +91,7 @@ class LobbyStoreScreen extends ConsumerWidget {
               );
               break;
             case 3:
-              // Profile
+              context.goToProfile();
               break;
             default:
               break;

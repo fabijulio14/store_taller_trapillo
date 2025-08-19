@@ -12,6 +12,10 @@ _$UserRegistrationImpl _$$UserRegistrationImplFromJson(
   name: json['name'] as String,
   email: json['email'] as String,
   password: json['password'] as String,
+  username: json['username'] as String?,
+  phone: json['phone'] as String?,
+  address: json['address'] as String?,
+  country: json['country'] as String?,
 );
 
 Map<String, dynamic> _$$UserRegistrationImplToJson(
@@ -20,4 +24,8 @@ Map<String, dynamic> _$$UserRegistrationImplToJson(
   'name': instance.name,
   'email': instance.email,
   'password': instance.password,
+  'username': instance.username,
+  'phone': instance.phone,
+  'address': instance.address,
+  'country': instance.country,
 };

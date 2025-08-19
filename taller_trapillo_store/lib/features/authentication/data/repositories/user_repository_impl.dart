@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../domain/repositories/user_repository.dart';
 import '../datasources/user_remote_datasource_impl.dart';
@@ -20,6 +21,29 @@ class UserRepositoryImpl implements UserRepository {
     } catch (e) {
       return false;
     }
+  }
+
+  @override
+  Future<User?> loginUser(String email, String password) async {
+    try {
+      return await _remoteDataSource.loginUser(email, password);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<void> logoutUser() async {
+    try {
+      await _remoteDataSource.logoutUser();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  User? getCurrentUser() {
+    return _remoteDataSource.getCurrentUser();
   }
 }
 

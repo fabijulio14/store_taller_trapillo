@@ -9,6 +9,10 @@ class UserRegistration with _$UserRegistration {
     required String name,
     required String email,
     required String password,
+    String? username,
+    String? phone,
+    String? address,
+    String? country,
   }) = _UserRegistration;
 
   factory UserRegistration.fromJson(Map<String, dynamic> json) => _$UserRegistrationFromJson(json);

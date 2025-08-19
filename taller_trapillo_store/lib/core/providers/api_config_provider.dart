@@ -6,7 +6,7 @@ part 'api_config_provider.g.dart';
 /// Provider para la URL base de la API
 @riverpod
 String apiBaseUrl(Ref ref) {
-  return 'http://192.168.1.157:3001'; // Mockoon local
+  return 'http://localhost:3001'; // Mockoon local
 }
 
 /// Provider para headers de la API

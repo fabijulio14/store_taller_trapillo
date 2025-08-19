@@ -24,6 +24,10 @@ mixin _$UserRegistration {
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  String? get username => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
 
   /// Serializes this UserRegistration to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +46,15 @@ abstract class $UserRegistrationCopyWith<$Res> {
     $Res Function(UserRegistration) then,
   ) = _$UserRegistrationCopyWithImpl<$Res, UserRegistration>;
   @useResult
-  $Res call({String name, String email, String password});
+  $Res call({
+    String name,
+    String email,
+    String password,
+    String? username,
+    String? phone,
+    String? address,
+    String? country,
+  });
 }
 
 /// @nodoc
@@ -63,6 +75,10 @@ class _$UserRegistrationCopyWithImpl<$Res, $Val extends UserRegistration>
     Object? name = null,
     Object? email = null,
     Object? password = null,
+    Object? username = freezed,
+    Object? phone = freezed,
+    Object? address = freezed,
+    Object? country = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -81,6 +97,26 @@ class _$UserRegistrationCopyWithImpl<$Res, $Val extends UserRegistration>
                     ? _value.password
                     : password // ignore: cast_nullable_to_non_nullable
                         as String,
+            username:
+                freezed == username
+                    ? _value.username
+                    : username // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            phone:
+                freezed == phone
+                    ? _value.phone
+                    : phone // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            address:
+                freezed == address
+                    ? _value.address
+                    : address // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            country:
+                freezed == country
+                    ? _value.country
+                    : country // ignore: cast_nullable_to_non_nullable
+                        as String?,
           )
           as $Val,
     );
@@ -96,7 +132,15 @@ abstract class _$$UserRegistrationImplCopyWith<$Res>
   ) = __$$UserRegistrationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String email, String password});
+  $Res call({
+    String name,
+    String email,
+    String password,
+    String? username,
+    String? phone,
+    String? address,
+    String? country,
+  });
 }
 
 /// @nodoc
@@ -116,6 +160,10 @@ class __$$UserRegistrationImplCopyWithImpl<$Res>
     Object? name = null,
     Object? email = null,
     Object? password = null,
+    Object? username = freezed,
+    Object? phone = freezed,
+    Object? address = freezed,
+    Object? country = freezed,
   }) {
     return _then(
       _$UserRegistrationImpl(
@@ -134,6 +182,26 @@ class __$$UserRegistrationImplCopyWithImpl<$Res>
                 ? _value.password
                 : password // ignore: cast_nullable_to_non_nullable
                     as String,
+        username:
+            freezed == username
+                ? _value.username
+                : username // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        phone:
+            freezed == phone
+                ? _value.phone
+                : phone // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        address:
+            freezed == address
+                ? _value.address
+                : address // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        country:
+            freezed == country
+                ? _value.country
+                : country // ignore: cast_nullable_to_non_nullable
+                    as String?,
       ),
     );
   }
@@ -146,6 +214,10 @@ class _$UserRegistrationImpl implements _UserRegistration {
     required this.name,
     required this.email,
     required this.password,
+    this.username,
+    this.phone,
+    this.address,
+    this.country,
   });
 
   factory _$UserRegistrationImpl.fromJson(Map<String, dynamic> json) =>
@@ -157,10 +229,18 @@ class _$UserRegistrationImpl implements _UserRegistration {
   final String email;
   @override
   final String password;
+  @override
+  final String? username;
+  @override
+  final String? phone;
+  @override
+  final String? address;
+  @override
+  final String? country;
 
   @override
   String toString() {
-    return 'UserRegistration(name: $name, email: $email, password: $password)';
+    return 'UserRegistration(name: $name, email: $email, password: $password, username: $username, phone: $phone, address: $address, country: $country)';
   }
 
   @override
@@ -171,12 +251,26 @@ class _$UserRegistrationImpl implements _UserRegistration {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
-                other.password == password));
+                other.password == password) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.country, country) || other.country == country));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, email, password);
+  int get hashCode => Object.hash(
+    runtimeType,
+    name,
+    email,
+    password,
+    username,
+    phone,
+    address,
+    country,
+  );
 
   /// Create a copy of UserRegistration
   /// with the given fields replaced by the non-null parameter values.
@@ -200,6 +294,10 @@ abstract class _UserRegistration implements UserRegistration {
     required final String name,
     required final String email,
     required final String password,
+    final String? username,
+    final String? phone,
+    final String? address,
+    final String? country,
   }) = _$UserRegistrationImpl;
 
   factory _UserRegistration.fromJson(Map<String, dynamic> json) =
@@ -211,6 +309,14 @@ abstract class _UserRegistration implements UserRegistration {
   String get email;
   @override
   String get password;
+  @override
+  String? get username;
+  @override
+  String? get phone;
+  @override
+  String? get address;
+  @override
+  String? get country;
 
   /// Create a copy of UserRegistration
   /// with the given fields replaced by the non-null parameter values.

@@ -1,31 +1,71 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taller_trapillo_store/core/features/app_colors.dart';
 import 'package:taller_trapillo_store/core/routing/app_routes.dart';
+import 'package:taller_trapillo_store/l10n/generated/app_localizations.dart';
+import '../view_models/login_view_model.dart';
 
-import '../../../../l10n/generated/app_localizations.dart';
-
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _userController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   void dispose() {
-    _userController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> _handleLogin() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    await ref
+        .read(loginViewModelProvider.notifier)
+        .loginUser(email: _emailController.text.trim(), password: _passwordController.text);
   }
 
   @override
   Widget build(BuildContext context) {
     AppLocalizations localizations = AppLocalizations.of(context)!;
+
+    ref.listen<LoginState>(loginViewModelProvider, (previous, next) {
+      if (!mounted) return;
+
+      switch (next) {
+        case LoginState.success:
+          ref.read(loginViewModelProvider.notifier).resetState();
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(localizations.msgLoginSuccess),
+              backgroundColor: AppColors.success,
+              duration: Duration(seconds: 1),
+            ),
+          );
+          Future.delayed(const Duration(milliseconds: 500), () {
+            if (mounted && context.mounted) context.goToStore();
+          });
+          break;
+        case LoginState.error:
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(localizations.msgAuthenticationError),
+              backgroundColor: AppColors.error,
+            ),
+          );
+          break;
+        case LoginState.initial:
+        case LoginState.loading:
+          break;
+      }
+    });
 
     return Scaffold(
       appBar: AppBar(title: Text(localizations.title_app), backgroundColor: AppColors.primary),
@@ -47,15 +87,19 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 32),
               TextFormField(
-                keyboardType: TextInputType.text,
-                controller: _userController,
+                keyboardType: TextInputType.emailAddress,
+                controller: _emailController,
                 decoration: InputDecoration(
-                  labelText: localizations.txt_user,
+                  labelText: localizations.lblEmail,
                   border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.email),
                 ),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return localizations.validationPleaseEnterUser;
+                  if (value == null || value.trim().isEmpty) {
+                    return localizations.validationPleaseEnterEmail;
+                  }
+                  if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value.trim())) {
+                    return localizations.validationEmailInvalid;
                   }
                   return null;
                 },
@@ -65,15 +109,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 controller: _passwordController,
                 decoration: InputDecoration(
                   labelText: localizations.txt_passw,
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.lock),
                 ),
                 obscureText: true,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return localizations.validationPleaseEnterPassword;
                   }
-                  if (value.length < 4) {
-                    return localizations.validationPasswordMinLength;
+                  if (value.length < 6) {
+                    return localizations.validationPasswordMinLength6;
                   }
                   return null;
                 },
@@ -91,21 +136,32 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 32),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: AppColors.secondary,
-                ),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Formulario válido, proceder con el login
-                    context.goToStore();
-                  }
+              Consumer(
+                builder: (context, ref, child) {
+                  final loginState = ref.watch(loginViewModelProvider);
+
+                  return ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 50),
+                      backgroundColor: AppColors.secondary,
+                    ),
+                    onPressed: loginState == LoginState.loading ? null : _handleLogin,
+                    child:
+                        loginState == LoginState.loading
+                            ? const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                valueColor: AlwaysStoppedAnimation<Color>(AppColors.textPrimary),
+                              ),
+                            )
+                            : Text(
+                              localizations.button_enter,
+                              style: const TextStyle(fontSize: 14, color: AppColors.textPrimary),
+                            ),
+                  );
                 },
-                child: Text(
-                  localizations.button_enter,
-                  style: const TextStyle(fontSize: 14, color: AppColors.textPrimary),
-                ),
               ),
             ],
           ),
