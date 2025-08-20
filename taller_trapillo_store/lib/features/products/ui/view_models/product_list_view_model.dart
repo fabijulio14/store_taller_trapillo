@@ -10,9 +10,13 @@ part 'product_list_view_model.g.dart';
 class ProductListViewModel extends _$ProductListViewModel {
   @override
   Future<List<Product>> build() async {
-    //llamada al repositorio a través del provider
     final repository = ref.read(productsRepositoryProvider);
     return repository.getProducts();
+  }
+
+  Future<List<Product>> getProductsFromFirestore() async {
+    final repository = ref.read(productsRepositoryProvider);
+    return await repository.getProductsFromFirestore();
   }
 
   List<Product> filterProductsByCategory(List<Product> products, String category) {

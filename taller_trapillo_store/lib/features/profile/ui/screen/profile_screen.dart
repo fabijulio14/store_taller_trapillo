@@ -133,7 +133,14 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(localizations.country),
-                      Text(localizations.spain, style: TextStyle(color: AppColors.grey)),
+                      Text(
+                        profileState.when(
+                          data: (userProfile) => userProfile?.country ?? localizations.spain,
+                          loading: () => localizations.spain,
+                          error: (error, stack) => localizations.spain,
+                        ),
+                        style: TextStyle(color: AppColors.grey),
+                      ),
                     ],
                   ),
                 ),

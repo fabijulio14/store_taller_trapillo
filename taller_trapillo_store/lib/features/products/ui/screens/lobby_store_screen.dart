@@ -78,7 +78,7 @@ class LobbyStoreScreen extends ConsumerWidget {
               // Home
               break;
             case 1:
-              // Cart
+              ref.read(productListViewModelProvider.notifier).getProductsFromFirestore();
               break;
             case 2:
               Navigator.push(
