@@ -72,7 +72,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get validationPleaseEnterUser => 'Por favor ingresa tu usuario';
 
   @override
-  String get validationPleaseEnterPassword => 'Por favor ingresa tu contraseña';
+  String get validationPleaseEnterPassword => 'Por favor ingrese una contraseña';
 
   @override
   String get validationPasswordMinLength => 'La contraseña debe tener al menos 4 caracteres';
@@ -100,4 +100,112 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get msgRegistrationError => 'Error en el registro';
+
+  @override
+  String get msgLoginSuccess => 'Login exitoso';
+
+  @override
+  String get msgAuthenticationError => 'Error de autenticación. Verifica tus credenciales.';
+
+  @override
+  String get validationPleaseEnterEmail => 'Por favor ingresa tu email';
+
+  @override
+  String get validationEmailInvalid => 'Por favor ingresa un email válido';
+
+  @override
+  String get validationPasswordMinLength6 => 'La contraseña debe tener al menos 6 caracteres';
+
+  @override
+  String get lblEmail => 'Email';
+
+  @override
+  String get account => 'Cuenta';
+
+  @override
+  String get editProfile => 'Editar perfil';
+
+  @override
+  String get addresses => 'Direcciones';
+
+  @override
+  String get paymentMethods => 'Métodos de pago';
+
+  @override
+  String get orders => 'Pedidos';
+
+  @override
+  String get orderHistory => 'Historial de pedidos';
+
+  @override
+  String get preferences => 'Preferencias';
+
+  @override
+  String get notifications => 'Notificaciones';
+
+  @override
+  String get language => 'Idioma';
+
+  @override
+  String get country => 'País';
+
+  @override
+  String get selectLanguage => 'Seleccionar idioma';
+
+  @override
+  String get spanish => 'Español';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get error => 'Error';
+
+  @override
+  String get pageNotFound => 'Página no encontrada';
+
+  @override
+  String get goToHome => 'Ir al inicio';
+
+  @override
+  String get spain => 'España';
+
+  @override
+  String get user => 'Usuario';
+
+  @override
+  String get username => 'Nombre de usuario';
+
+  @override
+  String get phone => 'Teléfono';
+
+  @override
+  String get address => 'Dirección';
+
+  @override
+  String get validationEnterUsername => 'Ingrese un nombre de usuario';
+
+  @override
+  String get validationEnterPhone => 'Ingrese un número de teléfono';
+
+  @override
+  String get validationEnterAddress => 'Ingrese una dirección';
+
+  @override
+  String get validationEnterCountry => 'Ingrese un país';
+
+  @override
+  String get validationPasswordsDoNotMatch => 'Las contraseñas no coinciden';
+
+  @override
+  String get validationPasswordMinLength6Chars => 'La contraseña debe tener al menos 6 caracteres';
+
+  @override
+  String get validationPleaseConfirmPassword => 'Por favor confirme su contraseña';
+
+  @override
+  String get errorUnexpected => 'Error inesperado';
 }

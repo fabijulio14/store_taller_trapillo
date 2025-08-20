@@ -6,7 +6,7 @@ part of 'api_config_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$apiBaseUrlHash() => r'e892b89c9012558944859a47fe79c5f2ac79883a';
+String _$apiBaseUrlHash() => r'2bda6cde108df28b43ace32b55edb3286933c00a';
 
 /// Provider para la URL base de la API
 ///

@@ -7,6 +7,7 @@ class AppRoutes {
   static const String register = '/register';
   static const String store = '/store';
   static const String productDetail = '/store/product';
+  static const String profile = '/profile';
 
   // Métodos de navegación útiles
   static void goToLogin(BuildContext context) {
@@ -29,6 +30,10 @@ class AppRoutes {
       context.go(store);
     }
   }
+
+  static void goToProfile(BuildContext context) {
+    context.push(profile);
+  }
 }
 
 // Extension para facilitar el uso de las rutas
@@ -37,4 +42,5 @@ extension AppRoutesExtension on BuildContext {
   void goToRegister() => AppRoutes.goToRegister(this);
   void goToStore() => AppRoutes.goToStore(this);
   void goBack() => AppRoutes.goBack(this);
+  void goToProfile() => AppRoutes.goToProfile(this);
 }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -29,6 +30,23 @@ class ProductsRemoteDataSourceImpl implements ProductsRemoteDataSource {
       throw Exception('Error de conexión: ${e.message}');
     } catch (e) {
       throw Exception('Error inesperado: $e');
+    }
+  }
+
+  Future<List<Product>> getProductsFromFirestore() async {
+    try {
+      final querySnapshot = await FirebaseFirestore.instance.collection('products').get();
+
+      final products = querySnapshot.docs.map((doc) => Product.fromJsonCustom(doc.data())).toList();
+
+      // Mostrar productos en consola
+      for (var product in products) {
+        print(product);
+      }
+
+      return products;
+    } catch (e) {
+      throw Exception('Error al obtener productos de Firestore: $e');
     }
   }
 }

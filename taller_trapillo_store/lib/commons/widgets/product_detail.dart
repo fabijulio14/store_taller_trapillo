@@ -37,7 +37,8 @@ class ProductDetail extends ConsumerWidget {
                     product.image,
                     height: 150,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(color: Colors.grey[200], height: 150),
+                    errorBuilder:
+                        (_, __, ___) => Container(color: AppColors.backgroundDisabled, height: 150),
                   ),
                 ),
               ),

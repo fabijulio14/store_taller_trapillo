@@ -22,6 +22,15 @@ class ProductsRepositoryImpl implements ProductsRepository {
       rethrow;
     }
   }
+
+  @override
+  Future<List<Product>> getProductsFromFirestore() async {
+    try {
+      return await _remoteDataSource.getProductsFromFirestore();
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 /// Provider para el repositorio de productos

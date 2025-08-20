@@ -224,7 +224,7 @@ abstract class AppLocalizations {
   /// No description provided for @validationPleaseEnterPassword.
   ///
   /// In es, this message translates to:
-  /// **'Por favor ingresa tu contraseña'**
+  /// **'Por favor ingrese una contraseña'**
   String get validationPleaseEnterPassword;
 
   /// No description provided for @validationPasswordMinLength.
@@ -280,6 +280,222 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Error en el registro'**
   String get msgRegistrationError;
+
+  /// No description provided for @msgLoginSuccess.
+  ///
+  /// In es, this message translates to:
+  /// **'Login exitoso'**
+  String get msgLoginSuccess;
+
+  /// No description provided for @msgAuthenticationError.
+  ///
+  /// In es, this message translates to:
+  /// **'Error de autenticación. Verifica tus credenciales.'**
+  String get msgAuthenticationError;
+
+  /// No description provided for @validationPleaseEnterEmail.
+  ///
+  /// In es, this message translates to:
+  /// **'Por favor ingresa tu email'**
+  String get validationPleaseEnterEmail;
+
+  /// No description provided for @validationEmailInvalid.
+  ///
+  /// In es, this message translates to:
+  /// **'Por favor ingresa un email válido'**
+  String get validationEmailInvalid;
+
+  /// No description provided for @validationPasswordMinLength6.
+  ///
+  /// In es, this message translates to:
+  /// **'La contraseña debe tener al menos 6 caracteres'**
+  String get validationPasswordMinLength6;
+
+  /// No description provided for @lblEmail.
+  ///
+  /// In es, this message translates to:
+  /// **'Email'**
+  String get lblEmail;
+
+  /// No description provided for @account.
+  ///
+  /// In es, this message translates to:
+  /// **'Cuenta'**
+  String get account;
+
+  /// No description provided for @editProfile.
+  ///
+  /// In es, this message translates to:
+  /// **'Editar perfil'**
+  String get editProfile;
+
+  /// No description provided for @addresses.
+  ///
+  /// In es, this message translates to:
+  /// **'Direcciones'**
+  String get addresses;
+
+  /// No description provided for @paymentMethods.
+  ///
+  /// In es, this message translates to:
+  /// **'Métodos de pago'**
+  String get paymentMethods;
+
+  /// No description provided for @orders.
+  ///
+  /// In es, this message translates to:
+  /// **'Pedidos'**
+  String get orders;
+
+  /// No description provided for @orderHistory.
+  ///
+  /// In es, this message translates to:
+  /// **'Historial de pedidos'**
+  String get orderHistory;
+
+  /// No description provided for @preferences.
+  ///
+  /// In es, this message translates to:
+  /// **'Preferencias'**
+  String get preferences;
+
+  /// No description provided for @notifications.
+  ///
+  /// In es, this message translates to:
+  /// **'Notificaciones'**
+  String get notifications;
+
+  /// No description provided for @language.
+  ///
+  /// In es, this message translates to:
+  /// **'Idioma'**
+  String get language;
+
+  /// No description provided for @country.
+  ///
+  /// In es, this message translates to:
+  /// **'País'**
+  String get country;
+
+  /// No description provided for @selectLanguage.
+  ///
+  /// In es, this message translates to:
+  /// **'Seleccionar idioma'**
+  String get selectLanguage;
+
+  /// No description provided for @spanish.
+  ///
+  /// In es, this message translates to:
+  /// **'Español'**
+  String get spanish;
+
+  /// No description provided for @english.
+  ///
+  /// In es, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @cancel.
+  ///
+  /// In es, this message translates to:
+  /// **'Cancelar'**
+  String get cancel;
+
+  /// No description provided for @error.
+  ///
+  /// In es, this message translates to:
+  /// **'Error'**
+  String get error;
+
+  /// No description provided for @pageNotFound.
+  ///
+  /// In es, this message translates to:
+  /// **'Página no encontrada'**
+  String get pageNotFound;
+
+  /// No description provided for @goToHome.
+  ///
+  /// In es, this message translates to:
+  /// **'Ir al inicio'**
+  String get goToHome;
+
+  /// No description provided for @spain.
+  ///
+  /// In es, this message translates to:
+  /// **'España'**
+  String get spain;
+
+  /// No description provided for @user.
+  ///
+  /// In es, this message translates to:
+  /// **'Usuario'**
+  String get user;
+
+  /// No description provided for @username.
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre de usuario'**
+  String get username;
+
+  /// No description provided for @phone.
+  ///
+  /// In es, this message translates to:
+  /// **'Teléfono'**
+  String get phone;
+
+  /// No description provided for @address.
+  ///
+  /// In es, this message translates to:
+  /// **'Dirección'**
+  String get address;
+
+  /// No description provided for @validationEnterUsername.
+  ///
+  /// In es, this message translates to:
+  /// **'Ingrese un nombre de usuario'**
+  String get validationEnterUsername;
+
+  /// No description provided for @validationEnterPhone.
+  ///
+  /// In es, this message translates to:
+  /// **'Ingrese un número de teléfono'**
+  String get validationEnterPhone;
+
+  /// No description provided for @validationEnterAddress.
+  ///
+  /// In es, this message translates to:
+  /// **'Ingrese una dirección'**
+  String get validationEnterAddress;
+
+  /// No description provided for @validationEnterCountry.
+  ///
+  /// In es, this message translates to:
+  /// **'Ingrese un país'**
+  String get validationEnterCountry;
+
+  /// No description provided for @validationPasswordsDoNotMatch.
+  ///
+  /// In es, this message translates to:
+  /// **'Las contraseñas no coinciden'**
+  String get validationPasswordsDoNotMatch;
+
+  /// No description provided for @validationPasswordMinLength6Chars.
+  ///
+  /// In es, this message translates to:
+  /// **'La contraseña debe tener al menos 6 caracteres'**
+  String get validationPasswordMinLength6Chars;
+
+  /// No description provided for @validationPleaseConfirmPassword.
+  ///
+  /// In es, this message translates to:
+  /// **'Por favor confirme su contraseña'**
+  String get validationPleaseConfirmPassword;
+
+  /// No description provided for @errorUnexpected.
+  ///
+  /// In es, this message translates to:
+  /// **'Error inesperado'**
+  String get errorUnexpected;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
